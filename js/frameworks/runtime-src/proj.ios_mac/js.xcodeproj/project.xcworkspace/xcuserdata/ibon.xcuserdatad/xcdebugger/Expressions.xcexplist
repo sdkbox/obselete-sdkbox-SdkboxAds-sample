@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd(JSContext*, unsigned int, JS::Value*):PluginSdkboxAdsJS.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "(int)sdkbox::AdType::INTERSTITIAL">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
