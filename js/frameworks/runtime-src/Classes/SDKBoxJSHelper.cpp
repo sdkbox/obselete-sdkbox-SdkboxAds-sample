@@ -10,7 +10,7 @@
 
 namespace sdkbox
 {
-    
+
 #if defined(MOZJS_MAJOR_VERSION)
     #if MOZJS_MAJOR_VERSION >= 33
 
@@ -52,11 +52,11 @@ namespace sdkbox
 #endif
     
     JSOBJECT* JS_NEW_ARRAY( JSContext* cx, uint32_t size ) {
-        return JS_NewArrayObject(cx, 0);
+        return JS_NewArrayObject(cx, size);
     }
     
     JSOBJECT* JS_NEW_ARRAY( JSContext* cx ) {
-        return JS_NEW_ARRAY(cx,0);
+        return sdkbox::JS_NEW_ARRAY(cx, 0);
     }
     
     void addProperty( JSContext* cx, JSOBJECT* jsobj, const char* prop, const std::string& value ) {

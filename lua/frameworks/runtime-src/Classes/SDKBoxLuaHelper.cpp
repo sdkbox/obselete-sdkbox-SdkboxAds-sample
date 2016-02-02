@@ -733,7 +733,7 @@ bool luatable_to_map_string_string(lua_State* L, int lo, std::map<std::string,st
                 else if(lua_type(L, -1) == LUA_TNUMBER)
                 {
                     char c[80];
-                    sprintf( c, "%f",tolua_tonumber(L, -1, 0) );
+                    snprintf( c, sizeof(c), "%f",tolua_tonumber(L, -1, 0) );
                     dict[stringKey] = std::string(c) ;
                 }
             }

@@ -106,30 +106,6 @@ JSClass  *jsb_sdkbox_PluginSdkboxAds_class;
 JSObject *jsb_sdkbox_PluginSdkboxAds_prototype;
 
 #if defined(MOZJS_MAJOR_VERSION)
-bool js_PluginSdkboxAdsJS_PluginSdkboxAds_init(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
-    if (argc == 0) {
-        sdkbox::PluginSdkboxAds::init();
-        args.rval().setUndefined();
-        return true;
-    }
-    JS_ReportError(cx, "js_PluginSdkboxAdsJS_PluginSdkboxAds_init : wrong number of arguments");
-    return false;
-}
-#elif defined(JS_VERSION)
-JSBool js_PluginSdkboxAdsJS_PluginSdkboxAds_init(JSContext *cx, uint32_t argc, jsval *vp)
-{
-    if (argc == 0) {
-        sdkbox::PluginSdkboxAds::init();
-        JS_SET_RVAL(cx, vp, JSVAL_VOID);
-        return JS_TRUE;
-    }
-    JS_ReportError(cx, "wrong number of arguments");
-    return JS_FALSE;
-}
-#endif
-#if defined(MOZJS_MAJOR_VERSION)
 bool js_PluginSdkboxAdsJS_PluginSdkboxAds_placement(JSContext *cx, uint32_t argc, jsval *vp)
 {
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -155,6 +131,30 @@ JSBool js_PluginSdkboxAdsJS_PluginSdkboxAds_placement(JSContext *cx, uint32_t ar
         ok &= jsval_to_std_string(cx, argv[0], &arg0);
         JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
         sdkbox::PluginSdkboxAds::placement(arg0);
+        JS_SET_RVAL(cx, vp, JSVAL_VOID);
+        return JS_TRUE;
+    }
+    JS_ReportError(cx, "wrong number of arguments");
+    return JS_FALSE;
+}
+#endif
+#if defined(MOZJS_MAJOR_VERSION)
+bool js_PluginSdkboxAdsJS_PluginSdkboxAds_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
+    if (argc == 0) {
+        sdkbox::PluginSdkboxAds::init();
+        args.rval().setUndefined();
+        return true;
+    }
+    JS_ReportError(cx, "js_PluginSdkboxAdsJS_PluginSdkboxAds_init : wrong number of arguments");
+    return false;
+}
+#elif defined(JS_VERSION)
+JSBool js_PluginSdkboxAdsJS_PluginSdkboxAds_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    if (argc == 0) {
+        sdkbox::PluginSdkboxAds::init();
         JS_SET_RVAL(cx, vp, JSVAL_VOID);
         return JS_TRUE;
     }
@@ -205,8 +205,8 @@ void js_register_PluginSdkboxAdsJS_PluginSdkboxAds(JSContext *cx, JS::HandleObje
     };
 
     static JSFunctionSpec st_funcs[] = {
-        JS_FN("init", js_PluginSdkboxAdsJS_PluginSdkboxAds_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("placement", js_PluginSdkboxAdsJS_PluginSdkboxAds_placement, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("init", js_PluginSdkboxAdsJS_PluginSdkboxAds_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
@@ -261,8 +261,8 @@ void js_register_PluginSdkboxAdsJS_PluginSdkboxAds(JSContext *cx, JSObject *glob
     };
 
     static JSFunctionSpec st_funcs[] = {
-        JS_FN("init", js_PluginSdkboxAdsJS_PluginSdkboxAds_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("placement", js_PluginSdkboxAdsJS_PluginSdkboxAds_placement, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("init", js_PluginSdkboxAdsJS_PluginSdkboxAds_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 
@@ -313,8 +313,8 @@ void js_register_PluginSdkboxAdsJS_PluginSdkboxAds(JSContext *cx, JSObject *glob
     JSFunctionSpec *funcs = NULL;
 
     static JSFunctionSpec st_funcs[] = {
-        JS_FN("init", js_PluginSdkboxAdsJS_PluginSdkboxAds_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("placement", js_PluginSdkboxAdsJS_PluginSdkboxAds_placement, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("init", js_PluginSdkboxAdsJS_PluginSdkboxAds_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
     };
 

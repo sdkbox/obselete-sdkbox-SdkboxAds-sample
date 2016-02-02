@@ -3,6 +3,8 @@
 #include "PluginSdkboxAds/PluginSdkboxAds.h"
 #include "js_manual_conversions.h"
 
+using namespace sdkbox;
+
 extern JSObject* jsb_sdkbox_PluginSdkboxAds_prototype;
 
 static JSContext* s_cx = nullptr;
@@ -80,33 +82,30 @@ public:
     }
     
     
-    virtual void onAdAction( const std::string& ad_unit_id, sdkbox::AdType ad_type, sdkbox::AdActionType action_type) {
+    virtual void onAdAction( const std::string& ad_unit_id, const std::string& zone_place_location, sdkbox::AdActionType action_type) {
         std::string name("onAdAction");
         jsval dataVal[3];
         dataVal[0] = std_string_to_jsval(s_cx, ad_unit_id);
-        dataVal[1] = INT_TO_JSVAL(ad_type);
+        dataVal[1] = std_string_to_jsval(s_cx, zone_place_location);
         dataVal[2] = INT_TO_JSVAL(action_type);
         invokeDelegate(name, dataVal, 3);
     }
     
-    virtual void onRewardAction( const std::string& ad_unit_id, const std::string& reward_name, float reward_amount, bool reward_succeed, const std::string& zone_id) {
+    virtual void onRewardAction( const std::string& ad_unit_id, const std::string& zone_place_location, float reward_amount, bool reward_succeed) {
         std::string name("onRewardAction");
         jsval dataVal[5];
         dataVal[0] = std_string_to_jsval(s_cx, ad_unit_id);
-        dataVal[1] = std_string_to_jsval(s_cx, reward_name);
+        dataVal[1] = std_string_to_jsval(s_cx, zone_place_location);
         dataVal[2] = DOUBLE_TO_JSVAL(reward_amount);
         dataVal[3] = int32_to_jsval(s_cx, reward_succeed?1:0);
-        dataVal[4] = std_string_to_jsval(s_cx, zone_id);
-        invokeDelegate(name, dataVal, 5);
+        invokeDelegate(name, dataVal, 4);
     }
     
 
 };
 
 
-
-
-    JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_setListener(JSContext *cx, uint32_t argc, jsval *vp)
+    sdkbox::JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_setListener(JSContext *cx, uint32_t argc, jsval *vp)
     {
         s_cx = cx;
         JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
@@ -133,7 +132,7 @@ public:
     }
 
 
-    JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd(JSContext *cx, uint32_t argc, jsval *vp)
+    sdkbox::JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd(JSContext *cx, uint32_t argc, jsval *vp)
     {
         JS_FUNCTION_ARGS args = JS_FUNCTION_GET_ARGS(argc, vp);
         JS_BOOL ok = true;
@@ -142,37 +141,34 @@ public:
             
             std::string ad_unit;
             unsigned int i_ad_type;
-            sdkbox::AdType ad_type;
+            std::string ad_name;
             
             ok &= jsval_to_std_string(cx, JS_FUNCTION_ARGS_GET(args,0), &ad_unit);
             JSB_PRECONDITION2(ok, cx, false, "js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd : Error processing arguments");
             
-            ok &= jsval_to_uint(cx, JS_FUNCTION_ARGS_GET(args,1), &i_ad_type);
+            ok &= jsval_to_std_string(cx, JS_FUNCTION_ARGS_GET(args,1), &ad_name);
             JSB_PRECONDITION2(ok, cx, false, "js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd : Error processing arguments");
-            ad_type = sdkbox::intToAdType(i_ad_type);
             
             std::map<std::string,std::string> req_args;
             ok &= sdkbox::jsval_to_std_map_string_string(cx, JS_FUNCTION_ARGS_GET(args,2), &req_args );
             JSB_PRECONDITION2(ok, cx, false, "Error processing arguments");
             
-            sdkbox::PluginSdkboxAds::playAd( ad_unit, ad_type, req_args );
+            sdkbox::PluginSdkboxAds::playAd( ad_unit, ad_name, req_args );
             
             JS_FUNCTION_RETURN_UNDEFINED(cx, args);
             
         } else if ( argc==2 ) {
             
-            unsigned int i_ad_type;
-            sdkbox::AdType ad_type;
+            std::string ad_name;
             
-            ok &= jsval_to_uint(cx, JS_FUNCTION_ARGS_GET(args,1), &i_ad_type);
+            ok &= jsval_to_std_string(cx, JS_FUNCTION_ARGS_GET(args,0), &ad_name);
             JSB_PRECONDITION2(ok, cx, false, "js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd : Error processing arguments");
-            ad_type = sdkbox::intToAdType(i_ad_type);
             
             std::map<std::string,std::string> req_args;
-            ok &= sdkbox::jsval_to_std_map_string_string(cx, JS_FUNCTION_ARGS_GET(args,0), &req_args );
+            ok &= sdkbox::jsval_to_std_map_string_string(cx, JS_FUNCTION_ARGS_GET(args,1), &req_args );
             JSB_PRECONDITION2(ok, cx, false, "Error processing arguments");
             
-            sdkbox::PluginSdkboxAds::playAd( ad_type, req_args );
+            sdkbox::PluginSdkboxAds::playAd( ad_name, req_args );
             
             JS_FUNCTION_RETURN_UNDEFINED(cx, args);
         } else if ( argc==0 ) {
@@ -188,6 +184,26 @@ public:
     }
 
 
+    sdkbox::JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_cacheControl(JSContext *cx, uint32_t argc, jsval *vp)
+    {
+        JS_FUNCTION_ARGS args = JS_FUNCTION_GET_ARGS(argc, vp);
+        JS_BOOL ok = true;
+        
+        std::string ad_unit;
+        std::map<std::string,std::string> req_args;
+        
+        ok &= jsval_to_std_string(cx, JS_FUNCTION_ARGS_GET(args,0), &ad_unit);
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginSdkboxAds_cacheControl : Error processing arguments");
+                
+        ok &= sdkbox::jsval_to_std_map_string_string(cx, JS_FUNCTION_ARGS_GET(args,1), &req_args );
+        JSB_PRECONDITION2(ok, cx, false, "js_PluginSdkboxAds_cacheControl : Error processing arguments");
+        
+        sdkbox::PluginSdkboxAds::cacheControl( ad_unit, req_args );
+        
+        JS_FUNCTION_RETURN_UNDEFINED(cx, args);
+        
+        return true;
+    }
 
 #define REGISTER_SDKBOXADS_FUNCTIONS \
 JS_DefineFunction(cx, pluginObj, "setListener", js_PluginSdkboxAdsJS_PluginSdkboxAds_setListener, 1, JSPROP_READONLY | JSPROP_PERMANENT); \

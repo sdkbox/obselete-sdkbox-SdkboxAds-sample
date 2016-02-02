@@ -52,6 +52,8 @@
 		9638BA8B1C2083F200A77546 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9638BA8A1C2083F100A77546 /* libz.tbd */; };
 		9638BA8D1C2083F700A77546 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9638BA8C1C2083F700A77546 /* libiconv.tbd */; };
 		9638BA8F1C20852300A77546 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9638BA8E1C20852300A77546 /* CoreTelephony.framework */; };
+		96A251BB1C56B78E00B07548 /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A251B91C56B78E00B07548 /* Chartboost.framework */; };
+		96A251BC1C56B78E00B07548 /* PluginChartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A251BA1C56B78E00B07548 /* PluginChartboost.framework */; };
 		96C9BD511C32A8920086EFBC /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C9BD501C32A8920086EFBC /* GameController.framework */; };
 		96C9BD531C32A9D40086EFBC /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C9BD521C32A9D40086EFBC /* AdColony.framework */; };
 		96C9BD5F1C330A3E0086EFBC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C9BD5E1C330A3E0086EFBC /* Social.framework */; };
@@ -124,6 +126,8 @@
 		9638BA8A1C2083F100A77546 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		9638BA8C1C2083F700A77546 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/usr/lib/libiconv.tbd; sourceTree = DEVELOPER_DIR; };
 		9638BA8E1C20852300A77546 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		96A251B91C56B78E00B07548 /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
+		96A251BA1C56B78E00B07548 /* PluginChartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginChartboost.framework; sourceTree = "<group>"; };
 		96C9BD501C32A8920086EFBC /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		96C9BD521C32A9D40086EFBC /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
 		96C9BD5E1C330A3E0086EFBC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Social.framework; sourceTree = DEVELOPER_DIR; };
@@ -143,11 +147,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96A251BB1C56B78E00B07548 /* Chartboost.framework in Frameworks */,
 				96C9BD641C330CBB0086EFBC /* MessageUI.framework in Frameworks */,
 				96C9BD621C330ABE0086EFBC /* MediaPlayer.framework in Frameworks */,
 				96C9BD611C330AAB0086EFBC /* EventKit.framework in Frameworks */,
 				96C9BD5F1C330A3E0086EFBC /* Social.framework in Frameworks */,
 				9638BA7B1C20704F00A77546 /* StoreKit.framework in Frameworks */,
+				96A251BC1C56B78E00B07548 /* PluginChartboost.framework in Frameworks */,
 				96C9BD511C32A8920086EFBC /* GameController.framework in Frameworks */,
 				9638BA8F1C20852300A77546 /* CoreTelephony.framework in Frameworks */,
 				9638BA8D1C2083F700A77546 /* libiconv.tbd in Frameworks */,
@@ -230,6 +236,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96A251B91C56B78E00B07548 /* Chartboost.framework */,
+				96A251BA1C56B78E00B07548 /* PluginChartboost.framework */,
 				962896FF1C491E8400D217AE /* PluginSdkboxAds.framework */,
 				96C9BD951C3336200086EFBC /* PluginAdColony.framework */,
 				96C9BD971C3336200086EFBC /* PluginFyber.framework */,
@@ -459,6 +467,8 @@
 					PluginFyber.framework/PluginFyber,
 					"-force_load",
 					PluginAdColony.framework/PluginAdColony,
+					"-force_load",
+					PluginChartboost.framework/PluginChartboost,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2dx.sdkboxads;
 				SDKROOT = iphoneos;
@@ -507,6 +517,8 @@
 					PluginFyber.framework/PluginFyber,
 					"-force_load",
 					PluginAdColony.framework/PluginAdColony,
+					"-force_load",
+					PluginChartboost.framework/PluginChartboost,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2dx.sdkboxads;
 				SDKROOT = iphoneos;

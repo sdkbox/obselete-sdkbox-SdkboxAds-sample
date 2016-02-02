@@ -13,7 +13,8 @@
     void register_all_PluginSdkboxAdsJS_helper(JSContext* cx, JSObject* global);
 #endif
 
-JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_setListener(JSContext *cx, uint32_t argc, jsval *vp);
-JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd(JSContext *cx, uint32_t argc, jsval *vp);
+sdkbox::JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_setListener(JSContext *cx, uint32_t argc, jsval *vp);
+sdkbox::JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_playAd(JSContext *cx, uint32_t argc, jsval *vp);
+sdkbox::JS_BOOL js_PluginSdkboxAdsJS_PluginSdkboxAds_cacheControl(JSContext *cx, uint32_t argc, jsval *vp);
 
 #endif /* defined(__js__PluginSdkboxAdsJSHelper_H_) */

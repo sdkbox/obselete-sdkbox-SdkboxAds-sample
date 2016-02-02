@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9A9392F843811F1451EF6C7E5487039638469357",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9A9392F843811F1451EF6C7E5487039638469357" : 0,
+    "7FFA4C9D6A5D7E1D85A2D9ACDBE9BFDD1D55EE4E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F0751114-E5FF-4D13-9953-88526D6C1187",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9A9392F843811F1451EF6C7E5487039638469357" : "sdkbox-SdkboxAds-sample\/",
+    "7FFA4C9D6A5D7E1D85A2D9ACDBE9BFDD1D55EE4E" : "..\/sdkbox-core"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "sdkboxads",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "cpp\/proj.ios_mac\/sdkboxads.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sdkbox\/sdkbox-core.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7FFA4C9D6A5D7E1D85A2D9ACDBE9BFDD1D55EE4E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sdkbox\/sdkbox-SdkboxAds-sample.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9A9392F843811F1451EF6C7E5487039638469357"
+    }
+  ]
+}

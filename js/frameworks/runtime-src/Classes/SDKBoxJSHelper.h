@@ -28,7 +28,6 @@ namespace sdkbox
 #endif
     jsval std_map_string_int_to_jsval(JSContext* cx, const std::map<std::string, int>& v);
     jsval std_map_string_string_to_jsval(JSContext* cx, const std::map<std::string, std::string>& v);
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -104,8 +103,16 @@ namespace sdkbox
 
     #endif
 
-#endif
+    JSOBJECT* JS_NEW_ARRAY( JSContext* cx, uint32_t size );
+    JSOBJECT* JS_NEW_ARRAY( JSContext* cx );
+    void addProperty( JSContext* cx, JSOBJECT* jsobj, const char* prop, const std::string& value );
+    void addProperty( JSContext* cx, JSOBJECT* jsobj, const char* prop, const char* value );
+    void addProperty( JSContext* cx, JSOBJECT* jsobj, const char* prop, bool value );
+    void addProperty( JSContext* cx, JSOBJECT* jsobj, const char* prop, int value );
+    void addProperty( JSContext* cx, JSOBJECT* jsobj, const char* prop, JSOBJECT* value );
 
+#endif
+}
 ////////////////////////////////////////////////////////////////////////////////
 ///                      SPIDER MONKEY UTILITIES  - END                      ///
 ////////////////////////////////////////////////////////////////////////////////

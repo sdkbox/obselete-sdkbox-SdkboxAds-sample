@@ -25,7 +25,7 @@ LOCAL_STATIC_LIBRARIES := cocos2d_js_static
 include $(BUILD_SHARED_LIBRARY)
 $(call import-add-path,$(LOCAL_PATH))
 
-$(call import-module,scripting/js-bindings/proj.android/prebuilt-mk)
+$(call import-module, scripting/js-bindings/proj.android/prebuilt-mk)
 $(call import-module, ./sdkbox)
 $(call import-module, ./pluginsdkboxads)
 $(call import-module, ./pluginfyber)
