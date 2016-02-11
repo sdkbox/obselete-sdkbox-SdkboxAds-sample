@@ -18,8 +18,8 @@ public:
     
     void runtests(int fd, const std::string& args);
 
-    virtual void onAdAction( const std::string& ad_unit_id, sdkbox::AdType ad_type, sdkbox::AdActionType action_type);
-    virtual void onRewardAction( const std::string& ad_unit_id, const std::string& reward_name, float reward_amount, bool reward_succeed, const std::string& zone_id);
+    virtual void onAdAction( const std::string& ad_unit_id, const std::string& ad_type, sdkbox::AdActionType action_type);
+    virtual void onRewardAction( const std::string& ad_unit_id, const std::string& zone_id, float reward_amount, bool reward_succeed);
     
     void onAdColonyIntestitial(cocos2d::CCObject *sender);
     void onAdColonyReward(cocos2d::CCObject *sender);

@@ -77,28 +77,27 @@ void HelloWorld::onAdColonyIntestitial(cocos2d::CCObject *sender) {
     
     sdkbox::AdUnitParams params;
     params.insert( std::pair<std::string,std::string>("zone-name","video") );
-    sdkbox::PluginSdkboxAds::playAd("AdColony", sdkbox::AdType::INTERSTITIAL, params );
+    sdkbox::PluginSdkboxAds::playAd("AdColony", "video", params );
     
 }
 void HelloWorld::onAdColonyReward(cocos2d::CCObject *sender) {
     sdkbox::AdUnitParams params;
     params.insert( std::pair<std::string,std::string>("zone-name","v4vc") );
-    sdkbox::PluginSdkboxAds::playAd("AdColony", sdkbox::AdType::REWARDED, params );
+    sdkbox::PluginSdkboxAds::playAd("AdColony", "v4vc", params );
 }
 void HelloWorld::onFyberIntestitial(cocos2d::CCObject *sender) {
-    sdkbox::PluginSdkboxAds::playAd("Fyber", sdkbox::AdType::INTERSTITIAL, sdkbox::AdUnitParams() );
+    sdkbox::PluginSdkboxAds::playAd("Fyber", "INTERSTITIAL", sdkbox::AdUnitParams() );
 }
 void HelloWorld::onFyberReward(cocos2d::CCObject *sender) {
-    sdkbox::PluginSdkboxAds::playAd("Fyber", sdkbox::AdType::REWARDED, sdkbox::AdUnitParams() );
+    sdkbox::PluginSdkboxAds::playAd("Fyber", "REWARDED", sdkbox::AdUnitParams() );
 }
 void HelloWorld::onDefaultAd(cocos2d::CCObject *sender) {
     sdkbox::PluginSdkboxAds::playAd();
 }
 
-void HelloWorld::onAdAction( const std::string& ad_unit_id, sdkbox::AdType ad_type, sdkbox::AdActionType action_type) {
-    
+void HelloWorld::onAdAction( const std::string& ad_unit_id, const std::string& zone, sdkbox::AdActionType action_type) {
+    CCLOG("   ADS: '%s' '%s' '%s'", ad_unit_id.c_str(), zone.c_str(), sdkbox::AdActionTypeToString(action_type).c_str());
 }
-
-void HelloWorld::onRewardAction( const std::string& ad_unit_id, const std::string& reward_name, float reward_amount, bool reward_succeed, const std::string& zone_id) {
-    
+void HelloWorld::onRewardAction( const std::string& ad_unit_id, const std::string& zone, float reward_amount, bool reward_succeed) {
+    CCLOG("   REWARDS: '%s' '%s' %f '%s'", ad_unit_id.c_str(), zone.c_str(), reward_amount, reward_succeed?"Success" : "fail");
 }

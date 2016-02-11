@@ -38,7 +38,7 @@ public:
         LuaValueDict dict;
         dict.insert(std::make_pair("name", LuaValue::stringValue("onAdAction")));
         dict.insert(std::make_pair("ad_unit_id", LuaValue::stringValue(ad_unit_id)));
-        dict.insert(std::make_pair("name", LuaValue::stringValue(zone_place_location)));
+        dict.insert(std::make_pair("ad_name", LuaValue::stringValue(zone_place_location)));
         dict.insert(std::make_pair("ad_action_type", LuaValue::intValue((int)action_type)));
         stack->pushLuaValueDict(dict);
         stack->executeFunctionByHandler(mLuaHandler, 1);
@@ -55,7 +55,7 @@ public:
         LuaValueDict dict;
         dict.insert(std::make_pair("name", LuaValue::stringValue("onRewardAction")));
         dict.insert(std::make_pair("ad_unit_id", LuaValue::stringValue(ad_unit_id)));
-        dict.insert(std::make_pair("name", LuaValue::stringValue(zone_place_location)));
+        dict.insert(std::make_pair("ad_name", LuaValue::stringValue(zone_place_location)));
         dict.insert(std::make_pair("reward_amount", LuaValue::floatValue(reward_amount)));
         dict.insert(std::make_pair("reward_succeed", LuaValue::booleanValue(reward_succeed)));
         stack->pushLuaValueDict(dict);

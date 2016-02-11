@@ -15,22 +15,17 @@ function MainScene:onCreate()
 	cc.MenuItemFont:setFontName("Arial")
     cc.Menu:create(
                    cc.MenuItemFont:create("AdColony Video"):onClicked(function()
-                        local args = {}
-                        args.zone_name = "video"
-                        sdkboxads:playAd("AdColony", 2, args )
+                        sdkboxads:playAd("AdColony", "video", {} )
                     end),
                    cc.MenuItemFont:create("AdColony Reward"):onClicked(function()
-                        local args = {}
-                        args.zone_name = "v4vc"
-                        sdkboxads:playAd("AdColony", 3, args )
+                        sdkboxads:playAd("AdColony", "v4vc", {} )
                     end),
                     cc.MenuItemFont:create("Fyber Video"):onClicked(function()
-                        local args = {}
-                        sdkboxads:playAd("Fyber", 2, args )
+                        sdkboxads:playAd("Fyber", "INTERSTITIAL", {} )
                     end),
                     cc.MenuItemFont:create("Fyber Reward"):onClicked(function()
                         local args = {}
-                        sdkboxads:playAd("Fyber", 3, args )
+                        sdkboxads:playAd("Fyber", "REWARDED", {} )
                     end),
                     cc.MenuItemFont:create("Default ad"):onClicked(function()
                         sdkboxads:playAd()

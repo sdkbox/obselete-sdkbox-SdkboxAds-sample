@@ -35,28 +35,28 @@ var HelloWorldLayer = cc.Layer.extend({
         sdkbox.PluginSdkboxAds.init();
         sdkbox.PluginSdkboxAds.setListener({
 
-            onAdAction : function( ad_unit_id, ad_type_number, ad_action_number ) {
-              cc.log("OnAdAction from unit: "+ad_unit_id+" "+ad_type_number+" "+ad_action_number);
+            onAdAction : function( ad_unit_id, zone_place_location, ad_action_number ) {
+              cc.log("OnAdAction from unit: "+ad_unit_id+" "+zone_place_location+" "+ad_action_number);
             },
 
-            onRewardAction : function( ad_unit_id, reward_name, reward_amount_float, reward_succeed_bool, zone_id ) {
-              cc.log("OnRewardAction from unit: "+ad_unit_id+" reward:"+reward_name+" amount:"+reward_amount_float+" success:"+reward_succeed_bool+" zone:"+zone_id);
+            onRewardAction : function( ad_unit_id, zone_place_location, reward_amount_float, reward_succeed_bool) {
+              cc.log("OnRewardAction from unit: "+ad_unit_id+" reward:"+zone_place_location+" amount:"+reward_amount_float+" success:"+reward_succeed_bool);
             }
 
         });
 
         var b0 = new cc.MenuItemFont("AdColony Video", function(){
-          sdkbox.PluginSdkboxAds.playAd("AdColony", AdType.VIDEO, { "zone-name" : "video" } );
+          sdkbox.PluginSdkboxAds.playAd("AdColony", "video", {} );
         }, this);
         var b1 = new cc.MenuItemFont("AdColony Reward", function(){
-          sdkbox.PluginSdkboxAds.playAd("AdColony", AdType.REWARDED, { "zone-name" : "v4vc" } );
+          sdkbox.PluginSdkboxAds.playAd("AdColony", "v4vc", {} );
         }, this);
 
         var b2 = new cc.MenuItemFont("Fyber Video", function(){
-                                    sdkbox.PluginSdkboxAds.playAd("Fyber", AdType.VIDEO, {});
+                                    sdkbox.PluginSdkboxAds.playAd("Fyber", "INTERSTITIAL", {});
         }, this);
         var b3 = new cc.MenuItemFont("Fyber Reward", function(){
-                                     sdkbox.PluginSdkboxAds.playAd("Fyber", AdType.REWARDED, {});
+                                     sdkbox.PluginSdkboxAds.playAd("Fyber", "REWARDED", {});
         }, this);
 
         var b4 = new cc.MenuItemFont("Default Ad", function(){

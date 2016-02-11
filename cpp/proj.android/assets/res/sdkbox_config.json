@@ -3,51 +3,39 @@
       "SdkboxAds": {
           "units": [ "AdColony", "Fyber" ],
           "placements": [
-                         {
-                         "id" : "placement-1",
-                         "strategy" : "round-robin",
-                         "units" : [
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "INTERSTITIAL",
-                                    "params" : {
-                                    "zone-name" : "video"
-                                    }
-                                    },
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "REWARDED",
-                                    "params" : {
-                                    "zone-name" : "v4vc"
-                                    }
-                                    },
-                                    {
-                                    "unit": "Fyber",
-                                    "type": "REWARDED"
-                                    }
-                                    ]
-                         },
-                         {
-                         "id" : "placement-2",
-                         "strategy" : "round-robin",
-                         "units" : [
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "INTERSTITIAL",
-                                    "params" : {
-                                    "zone-name" : "video"
-                                    }
-                                    },
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "REWARDED",
-                                    "params" : {
-                                    "zone-name" : "v4vc"
-                                    }
-                                    }
-                                    ]
-                         }
-                         ]
+                           {
+                           "id" : "placement-1",
+                           "strategy" : "round-robin",
+                           "units" : [
+                                      {
+                                      "unit": "AdColony",
+                                      "name": "video"
+                                      },
+                                      {
+                                      "unit": "Chartboost",
+                                      "name": "Default"
+                                      },
+                                      {
+                                      "unit" : "Fyber",
+                                      "name" : "INTERSTITIAL"
+                                      }
+                                      ]
+                           },
+                           {
+                           "id" : "placement-2",
+                           "strategy" : "round-robin",
+                           "units" : [
+                                      {
+                                      "unit": "AdColony",
+                                      "name": "v4vc"
+                                      },
+                                      {
+                                      "unit": "Fyber",
+                                      "name": "REWARDED"
+                                      }
+                                      ]
+                           }
+                           ]
       },
                          "AdColony":{
             "id":"app185a7e71e1714831a49ec7",
@@ -79,51 +67,39 @@
                     "Fyber"
                     ],
           "placements": [
-                         {
-                         "id" : "placement-1",
-                         "strategy" : "round-robin",
-                         "units" : [
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "INTERSTITIAL",
-                                    "params" : {
-                                    "zone-name" : "video"
-                                    }
-                                    },
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "REWARDED",
-                                    "params" : {
-                                    "zone-name" : "v4vc"
-                                    }
-                                    },
-                                    {
-                                    "unit": "Fyber",
-                                    "type": "REWARDED"
-                                    }
-                                    ]
-                         },
-                         {
-                         "id" : "placement-2",
-                         "strategy" : "round-robin",
-                         "units" : [
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "INTERSTITIAL",
-                                    "params" : {
-                                    "zone-name" : "video"
-                                    }
-                                    },
-                                    {
-                                    "unit": "AdColony",
-                                    "type": "REWARDED",
-                                    "params" : {
-                                    "zone-name" : "v4vc"
-                                    }
-                                    }
-                                    ]
-                         }
-                         ]
+                           {
+                           "id" : "placement-1",
+                           "strategy" : "round-robin",
+                           "units" : [
+                                      {
+                                      "unit": "AdColony",
+                                      "name": "video"
+                                      },
+                                      {
+                                      "unit": "Chartboost",
+                                      "name": "Default"
+                                      },
+                                      {
+                                      "unit" : "Fyber",
+                                      "name" : "INTERSTITIAL"
+                                      }
+                                      ]
+                           },
+                           {
+                           "id" : "placement-2",
+                           "strategy" : "round-robin",
+                           "units" : [
+                                      {
+                                      "unit": "AdColony",
+                                      "name": "v4vc"
+                                      },
+                                      {
+                                      "unit": "Fyber",
+                                      "name": "REWARDED"
+                                      }
+                                      ]
+                           }
+                           ]
       },
       "Fyber" :  {
           "appid":"35561",
