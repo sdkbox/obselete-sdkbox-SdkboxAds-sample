@@ -64,7 +64,22 @@
             "debug": true, 
             "key": "7340A8B9-58FF-462B-9611-B1CE0A92DB54"
         }, 
+        "Vungle": {
+            "id": "5536c24a8e05738318000010", 
+            "ads": {
+                "reward": {
+                    "sound": false, 
+                    "backbutton": false, 
+                    "incentivized": true
+                }, 
+                "video": {
+                    "sound": true, 
+                    "backbutton": true
+                }
+            }
+        }, 
         "Chartboost": {
+            "id": "4f7b433509b6025804000002", 
             "ads": {
                 "Default": {
                     "type": "interstitial"
@@ -76,7 +91,6 @@
                     "type": "more_app"
                 }
             }, 
-            "id": "4f7b433509b6025804000002", 
             "signature": "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
         }, 
         "AdColony": {
@@ -99,10 +113,11 @@
     "ios": {
         "SdkboxAds": {
             "units": [
-                "AdColony",
-                "Bee7",
-                "Chartboost",
+                "AdColony", 
+                "Bee7", 
+                "Chartboost", 
                 "AdMob",
+                "Vungle",
                 "Fyber"
             ], 
             "placements": [
@@ -117,22 +132,26 @@
                             "unit": "Chartboost"
                         }, 
                         {
-                            "name": "gameover",
+                            "name": "gameover", 
                             "unit": "AdMob"
                         }
-                    ], 
+                    ],
                     "id": "placement-1", 
                     "strategy": "round-robin"
                 }, 
                 {
                     "units": [
                         {
-                            "name": "REWARDED", 
-                            "unit": "Fyber"
+                              "name": "video",
+                              "unit": "Vungle"
                         },
                         {
-                              "name": "INTERSTITIAL",
-                              "unit": "Bee7"
+                            "name": "REWARDED", 
+                            "unit": "Fyber"
+                        }, 
+                        {
+                            "name": "INTERSTITIAL", 
+                            "unit": "Bee7"
                         }
                     ], 
                     "id": "placement-2", 
@@ -156,6 +175,7 @@
             }
         }, 
         "Fyber": {
+            "debug": true, 
             "token": "34a9643edf4d3052d2bc1928b2e34d8d", 
             "appid": "35561"
         }, 
@@ -163,7 +183,22 @@
             "debug": true, 
             "key": "FE74A9C4-1288-4F6F-8D6E-C365699F2C72"
         }, 
+        "Vungle": {
+            "id": "5535dc14a104ddf07600001c", 
+            "ads": {
+                "reward": {
+                    "sound": false, 
+                    "backbutton": false, 
+                    "incentivized": true
+                }, 
+                "video": {
+                    "sound": true, 
+                    "backbutton": true
+                }
+            }
+        }, 
         "Chartboost": {
+            "id": "4f21c409cd1cb2fb7000001b", 
             "ads": {
                 "Default": {
                     "type": "interstitial"
@@ -175,7 +210,6 @@
                     "type": "more_app"
                 }
             }, 
-            "id": "4f21c409cd1cb2fb7000001b", 
             "signature": "92e2de2fd7070327bdeb54c15a5295309c6fcd2d"
         }, 
         "AdColony": {

@@ -18,7 +18,9 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_WHOLE_STATIC_LIBRARIES := PluginAdMob \
 sdkbox \
 PluginBee7 \
-PluginChartboost
+PluginChartboost \
+PluginFyber \
+PluginVungle
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_STATIC_LIBRARIES += sdkbox
@@ -37,3 +39,4 @@ $(call import-module, ./prebuilt-mk)
 $(call import-module, ./pluginadmob)
 $(call import-module, ./pluginbee7)
 $(call import-module, ./pluginchartboost)
+$(call import-module, ./pluginvungle)

@@ -14,7 +14,7 @@
 #include "PluginChartboost/PluginChartboost.h"
 #include "PluginAdMob/PluginAdMob.h"
 #include "PluginBee7/PluginBee7.h"
-
+#include "PluginVungle/PluginVungle.h"
 
 USING_NS_CC;
 
@@ -49,12 +49,14 @@ bool HelloWorld::init()
     std::string defaultFont("arial.ttf");
     int defaultFontSize = 32;
     
+    
+    // Pre-cache
     sdkbox::PluginAdMob::cache("gameover");
     
     Menu* menu = Menu::create(
-                      MenuItemFont::create("Default Ad",            CC_CALLBACK_1(HelloWorld::onDefaultAd, this)),
-                      MenuItemFont::create("Placement 1",            CC_CALLBACK_1(HelloWorld::onPlacement1, this)),
-                      MenuItemFont::create("Placement 2",            CC_CALLBACK_1(HelloWorld::onPlacement2, this)),
+                              MenuItemFont::create("Group 1",            CC_CALLBACK_1(HelloWorld::onPlacement1, this)),
+                              MenuItemFont::create("Group 2",            CC_CALLBACK_1(HelloWorld::onPlacement2, this)),
+                              MenuItemFont::create("Default Ad",            CC_CALLBACK_1(HelloWorld::onDefaultAd, this)),
                               MenuItemFont::create("----"),
                               MenuItemFont::create("AdColony Interstital",  CC_CALLBACK_1(HelloWorld::onAdColonyIntestitial, this)),
                               MenuItemFont::create("AdColony Reward",       CC_CALLBACK_1(HelloWorld::onAdColonyReward, this)),
@@ -64,6 +66,7 @@ bool HelloWorld::init()
                               MenuItemFont::create("AdMob", [](Object *obj) { sdkbox::PluginAdMob::show("gameover"); sdkbox::PluginAdMob::cache("gameover"); }),
                               MenuItemFont::create("Chartboost Interstitial", [](Object *obj) { sdkbox::PluginChartboost::show("Default"); }),
                               MenuItemFont::create("Chartboost Reward Video", [](Object *obj) { sdkbox::PluginChartboost::show("Level Complete"); }),
+                              MenuItemFont::create("Vungle Video", [](Object *obj) { sdkbox::PluginVungle::show("reward"); }),
                       NULL
                               );
     
