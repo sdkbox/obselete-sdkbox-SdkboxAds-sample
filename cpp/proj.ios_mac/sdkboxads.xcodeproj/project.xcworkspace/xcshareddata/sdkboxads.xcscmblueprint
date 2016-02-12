@@ -4,18 +4,32 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "9A9392F843811F1451EF6C7E5487039638469357" : 0,
-    "7FFA4C9D6A5D7E1D85A2D9ACDBE9BFDD1D55EE4E" : 0
+    "0FA5A863E7701449DA77BB614B4BCCCAAC6AF008" : 0,
+    "7FFA4C9D6A5D7E1D85A2D9ACDBE9BFDD1D55EE4E" : 0,
+    "1B6100D5ABAE1D62C09C9B8653D821FECCA717EE" : 0,
+    "9A9392F843811F1451EF6C7E5487039638469357" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F0751114-E5FF-4D13-9953-88526D6C1187",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "9A9392F843811F1451EF6C7E5487039638469357" : "sdkbox-SdkboxAds-sample\/",
-    "7FFA4C9D6A5D7E1D85A2D9ACDBE9BFDD1D55EE4E" : "..\/sdkbox-core"
+    "0FA5A863E7701449DA77BB614B4BCCCAAC6AF008" : "sdkbox-iap-sample\/",
+    "7FFA4C9D6A5D7E1D85A2D9ACDBE9BFDD1D55EE4E" : "..\/sdkbox-core",
+    "1B6100D5ABAE1D62C09C9B8653D821FECCA717EE" : "sdkbox-iap-sample\/cocos2d-x-3.6-lib\/",
+    "9A9392F843811F1451EF6C7E5487039638469357" : "sdkbox-SdkboxAds-sample\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "sdkboxads",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "cpp\/proj.ios_mac\/sdkboxads.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sdkbox\/sdkbox-iap-sample",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0FA5A863E7701449DA77BB614B4BCCCAAC6AF008"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/yinjimmy\/cocos2d-x-3.6-lib.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1B6100D5ABAE1D62C09C9B8653D821FECCA717EE"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sdkbox\/sdkbox-core.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
