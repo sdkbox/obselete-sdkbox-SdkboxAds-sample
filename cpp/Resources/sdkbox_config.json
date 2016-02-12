@@ -2,44 +2,52 @@
     "android": {
         "SdkboxAds": {
             "units": [
-                "AdColony", 
-                "Fyber"
-            ], 
+                      "AdColony",
+                      "Bee7",
+                      "Chartboost",
+                      "AdMob",
+                      "Vungle",
+                      "Fyber"
+                      ],
             "placements": [
-                {
-                    "units": [
-                        {
-                            "name": "video", 
-                            "unit": "AdColony"
-                        }, 
-                        {
-                            "name": "Default", 
-                            "unit": "Chartboost"
-                        }, 
-                        {
-                            "name": "INTERSTITIAL", 
-                            "unit": "Fyber"
-                        }
-                    ], 
-                    "id": "placement-1", 
-                    "strategy": "round-robin"
-                }, 
-                {
-                    "units": [
-                        {
-                            "name": "v4vc", 
-                            "unit": "AdColony"
-                        }, 
-                        {
-                            "name": "REWARDED", 
-                            "unit": "Fyber"
-                        }
-                    ], 
-                    "id": "placement-2", 
-                    "strategy": "round-robin"
-                }
-            ]
-        }, 
+                           {
+                           "units": [
+                                     {
+                                     "name": "video",
+                                     "unit": "AdColony"
+                                     },
+                                     {
+                                     "name": "Default",
+                                     "unit": "Chartboost"
+                                     },
+                                     {
+                                     "name": "gameover",
+                                     "unit": "AdMob"
+                                     }
+                                     ],
+                           "id": "placement-1",
+                           "strategy": "round-robin"
+                           },
+                           {
+                           "units": [
+                                     {
+                                     "name": "video",
+                                     "unit": "Vungle"
+                                     },
+                                     {
+                                     "name": "REWARDED",
+                                     "unit": "Fyber"
+                                     },
+                                     {
+                                     "name": "INTERSTITIAL", 
+                                     "unit": "Bee7"
+                                     }
+                                     ], 
+                           "id": "placement-2", 
+                           "strategy": "round-robin"
+                           }
+                           ]
+        },
         "AdMob": {
             "ads": {
                 "gameover": {
