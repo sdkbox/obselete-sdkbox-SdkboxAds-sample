@@ -10,6 +10,12 @@
 #include <WS2tcpip.h>
 #endif
 
+#include "PluginAdColony/PluginAdColony.h"
+#include "PluginChartboost/PluginChartboost.h"
+#include "PluginAdMob/PluginAdMob.h"
+#include "PluginBee7/PluginBee7.h"
+
+
 USING_NS_CC;
 
 using namespace sdkbox;
@@ -43,14 +49,21 @@ bool HelloWorld::init()
     std::string defaultFont("arial.ttf");
     int defaultFontSize = 32;
     
+    sdkbox::PluginAdMob::cache("gameover");
+    
     Menu* menu = Menu::create(
-                      MenuItemFont::create("AdColony Interstital",  CC_CALLBACK_1(HelloWorld::onAdColonyIntestitial, this)),
-                      MenuItemFont::create("AdColony Reward",       CC_CALLBACK_1(HelloWorld::onAdColonyReward, this)),
-                      MenuItemFont::create("Fyber Interstital",     CC_CALLBACK_1(HelloWorld::onFyberIntestitial, this)),
-                      MenuItemFont::create("Fyber Reward",          CC_CALLBACK_1(HelloWorld::onFyberReward, this)),
                       MenuItemFont::create("Default Ad",            CC_CALLBACK_1(HelloWorld::onDefaultAd, this)),
-                        MenuItemFont::create("Placement 1",            CC_CALLBACK_1(HelloWorld::onPlacement1, this)),
+                      MenuItemFont::create("Placement 1",            CC_CALLBACK_1(HelloWorld::onPlacement1, this)),
                       MenuItemFont::create("Placement 2",            CC_CALLBACK_1(HelloWorld::onPlacement2, this)),
+                              MenuItemFont::create("----"),
+                              MenuItemFont::create("AdColony Interstital",  CC_CALLBACK_1(HelloWorld::onAdColonyIntestitial, this)),
+                              MenuItemFont::create("AdColony Reward",       CC_CALLBACK_1(HelloWorld::onAdColonyReward, this)),
+                              MenuItemFont::create("Fyber Interstital",     CC_CALLBACK_1(HelloWorld::onFyberIntestitial, this)),
+                              MenuItemFont::create("Fyber Reward",          CC_CALLBACK_1(HelloWorld::onFyberReward, this)),
+                              MenuItemFont::create("Bee7 (Portrait Only!)", [](Object *obj) { sdkbox::PluginBee7::showGameWall(); }),
+                              MenuItemFont::create("AdMob", [](Object *obj) { sdkbox::PluginAdMob::show("gameover"); sdkbox::PluginAdMob::cache("gameover"); }),
+                              MenuItemFont::create("Chartboost Interstitial", [](Object *obj) { sdkbox::PluginChartboost::show("Default"); }),
+                              MenuItemFont::create("Chartboost Reward Video", [](Object *obj) { sdkbox::PluginChartboost::show("Level Complete"); }),
                       NULL
                               );
     
