@@ -66,7 +66,9 @@ bool HelloWorld::init()
                               MenuItemFont::create("AdMob", [](Object *obj) { sdkbox::PluginAdMob::show("gameover"); sdkbox::PluginAdMob::cache("gameover"); }),
                               MenuItemFont::create("Chartboost Interstitial", [](Object *obj) { sdkbox::PluginChartboost::show("Default"); }),
                               MenuItemFont::create("Chartboost Reward Video", [](Object *obj) { sdkbox::PluginChartboost::show("Level Complete"); }),
-                              MenuItemFont::create("Vungle Video", [](Object *obj) { sdkbox::PluginVungle::show("reward"); }),
+                              MenuItemFont::create("Vungle Video", [](Object *obj) {
+        sdkbox::PluginVungle::show("reward");
+    }),
                       NULL
                               );
     
@@ -91,21 +93,17 @@ void HelloWorld::onPlacement2(cocos2d::CCObject *sender) {
 
 void HelloWorld::onAdColonyIntestitial(cocos2d::CCObject *sender) {
     
-    sdkbox::AdUnitParams params;
-    params.insert( std::pair<std::string,std::string>("zone-name","video") );
-    sdkbox::PluginSdkboxAds::playAd("AdColony", "video", params );
+    sdkbox::PluginSdkboxAds::playAd("AdColony", "video" );
     
 }
 void HelloWorld::onAdColonyReward(cocos2d::CCObject *sender) {
-    sdkbox::AdUnitParams params;
-    params.insert( std::pair<std::string,std::string>("zone-name","v4vc") );
-    sdkbox::PluginSdkboxAds::playAd("AdColony", "v4vc", params );
+    sdkbox::PluginSdkboxAds::playAd("AdColony", "v4vc" );
 }
 void HelloWorld::onFyberIntestitial(cocos2d::CCObject *sender) {
-    sdkbox::PluginSdkboxAds::playAd("Fyber", "INTERSTITIAL", sdkbox::AdUnitParams() );
+    sdkbox::PluginSdkboxAds::playAd("Fyber", "INTERSTITIAL" );
 }
 void HelloWorld::onFyberReward(cocos2d::CCObject *sender) {
-    sdkbox::PluginSdkboxAds::playAd("Fyber", "REWARDED", sdkbox::AdUnitParams() );
+    sdkbox::PluginSdkboxAds::playAd("Fyber", "REWARDED" );
 }
 void HelloWorld::onDefaultAd(cocos2d::CCObject *sender) {
     sdkbox::PluginSdkboxAds::playAd();
