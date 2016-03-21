@@ -73,6 +73,20 @@ namespace sdkbox {
          * check whether ad available with @name
          */
         static bool isAvailable(const std::string &name);
+        
+        /**
+         * get width of current banner
+         *
+         * @return: -1 means current banner is not available
+         */
+        static int getCurrBannerWidth();
+
+        /**
+         * get height of current banner
+         *
+         * @return: -1 means current banner is not available
+         */
+        static int getCurrBannerHeight();
     };
     
     class AdMobListener {
