@@ -35,3 +35,7 @@ cpp/proj.android/libs/bee7-android-sdk-gamewall/bin
 cpp/proj.android/libs/bee7-android-sdk-gamewall/gen
 backup-*.zip
 backup-2016-*
+lua/frameworks/runtime-src/proj.ios_mac/sdkboxadslua.xcodeproj/project.xcworkspace
+lua/frameworks/runtime-src/proj.ios_mac/sdkboxadslua.xcodeproj/xcuserdata
+js/frameworks/runtime-src/proj.ios_mac/sdkboxadsjs.xcodeproj/project.xcworkspace
+js/frameworks/runtime-src/proj.ios_mac/sdkboxadsjs.xcodeproj/xcuserdata

@@ -44,20 +44,17 @@
         var texture = this._texture;
         var locItemWidth = node._itemWidth , locItemHeight = node._itemHeight;     //needn't multiply cc.contentScaleFactor(), because sprite's draw will do this
 
-        for (var i = 0, cr = -1; i < n; i++) {
+        for (var i = 0; i < n; i++) {
             var a = locString.charCodeAt(i) - node._mapStartChar.charCodeAt(0);
             var row = parseInt(a % node._itemsPerRow, 10);
             var col = parseInt(a / node._itemsPerRow, 10);
-            if(row < 0 || col < 0)
-                continue;
 
-            cr++;
             var rect = cc.rect(row * locItemWidth, col * locItemHeight, locItemWidth, locItemHeight);
             var c = locString.charCodeAt(i);
             var fontChar = node.getChildByTag(i);
             if (!fontChar) {
                 fontChar = new cc.Sprite();
-                if (c === 32) {
+                if (c == 32) {
                     fontChar.init();
                     fontChar.setTextureRect(cc.rect(0, 0, 10, 10), false, cc.size(0, 0));
                 } else
@@ -65,7 +62,7 @@
 
                 cc.Node.prototype.addChild.call(node, fontChar, 0, i);
             } else {
-                if (c === 32) {
+                if (c == 32) {
                     fontChar.init();
                     fontChar.setTextureRect(cc.rect(0, 0, 10, 10), false, cc.size(0, 0));
                 } else {
@@ -75,7 +72,7 @@
                     fontChar.visible = true;
                 }
             }
-            fontChar.setPosition(cr * locItemWidth + locItemWidth / 2, locItemHeight / 2);
+            fontChar.setPosition(i * locItemWidth + locItemWidth / 2, locItemHeight / 2);
         }
     };
 

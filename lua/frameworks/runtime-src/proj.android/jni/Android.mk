@@ -13,20 +13,10 @@ FILE_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/ide-support/*.c)
 
 LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
-
-
-LOCAL_LDLIBS := -landroid -llog
-LOCAL_CPPFLAGS := -DSDKBOX_ENABLED
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes 
-LOCAL_WHOLE_STATIC_LIBRARIES := PluginAdColony PluginFyber PluginSdkboxAds sdkbox
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
 LOCAL_STATIC_LIBRARIES := cocos2d_lua_static
 
 include $(BUILD_SHARED_LIBRARY)
-$(call import-add-path,$(LOCAL_PATH))
 
 $(call import-module,scripting/lua-bindings/proj.android/prebuilt-mk)
-$(call import-module, ./sdkbox)
-$(call import-module, ./pluginsdkboxads)
-$(call import-module, ./pluginfyber)
-$(call import-module, ./pluginadcolony)

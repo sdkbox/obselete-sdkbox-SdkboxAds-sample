@@ -1,8 +1,8 @@
 {
     "ndk_module_path" :[
-        "/Applications/Cocos/frameworks/cocos2d-x-3.8.1",
-        "/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos",
-        "/Applications/Cocos/frameworks/cocos2d-x-3.8.1/external"
+        "../../../../cocos2d-x-3.6-lib",
+        "../../../../cocos2d-x-3.6-lib/cocos",
+        "../../../../cocos2d-x-3.6-lib/external"
     ],
     "copy_resources": [
         {
@@ -16,13 +16,19 @@
         {
             "from": "../../../main.js",
             "to": ""
+        }
+    ],
+    "must_copy_resources": [
+        {
+            "from": "../../../config.json",
+            "to": ""
         },
         {
             "from": "../../../project.json",
             "to": ""
         },
         {
-            "from": "/Applications/Cocos/frameworks/cocos2d-x-3.8.1/cocos/scripting/js-bindings/script",
+            "from": "../../../script",
             "to": "script"
         }
     ]

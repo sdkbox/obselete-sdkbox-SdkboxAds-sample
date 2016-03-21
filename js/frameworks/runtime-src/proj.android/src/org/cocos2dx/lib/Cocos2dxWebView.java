@@ -1,5 +1,8 @@
 package org.cocos2dx.lib;
 
+import java.lang.reflect.Method;
+import java.net.URI;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
@@ -8,9 +11,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
-
-import java.lang.reflect.Method;
-import java.net.URI;
 
 public class Cocos2dxWebView extends WebView {
     private static final String TAG = Cocos2dxWebViewHelper.class.getSimpleName();
@@ -58,16 +58,11 @@ public class Cocos2dxWebView extends WebView {
     class Cocos2dxWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String urlString) {
-            try {
-                URI uri = URI.create(urlString);
-                if (uri != null && uri.getScheme().equals(mJSScheme)) {
-                    Cocos2dxWebViewHelper._onJsCallback(mViewTag, urlString);
-                    return true;
-                }
-            } catch (Exception e) {
-                Log.d(TAG, "Failed to create URI from url");
+            URI uri = URI.create(urlString);
+            if (uri != null && uri.getScheme().equals(mJSScheme)) {
+                Cocos2dxWebViewHelper._onJsCallback(mViewTag, urlString);
+                return true;
             }
-
             return Cocos2dxWebViewHelper._shouldStartLoading(mViewTag, urlString);
         }
 
