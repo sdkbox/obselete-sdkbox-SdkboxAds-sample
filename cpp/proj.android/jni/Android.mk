@@ -20,7 +20,9 @@ sdkbox \
 PluginBee7 \
 PluginChartboost \
 PluginFyber \
-PluginVungle
+PluginVungle \
+PluginSdkboxAds \
+PluginAdColony
 
 LOCAL_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_STATIC_LIBRARIES += sdkbox

@@ -501,25 +501,12 @@ cc.sequence = function (/*Multiple Arguments*/tempArray) {
     if ((paramArray.length > 0) && (paramArray[paramArray.length - 1] == null))
         cc.log("parameters should not be ending with null in Javascript");
 
-    var result, current, i, repeat;
-    while(paramArray && paramArray.length > 0){
-        current = Array.prototype.shift.call(paramArray);
-        repeat = current._timesForRepeat || 1;
-        current._repeatMethod = false;
-        current._timesForRepeat = 1;
-
-        i = 0;
-        if(!result){
-            result = current;
-            i = 1;
-        }
-
-        for(i; i<repeat; i++){
-            result = cc.Sequence._actionOneTwo(result, current);
-        }
+    var prev = paramArray[0];
+    for (var i = 1; i < paramArray.length; i++) {
+        if (paramArray[i])
+            prev = cc.Sequence._actionOneTwo(prev, paramArray[i]);
     }
-
-    return result;
+    return prev;
 };
 
 /**
@@ -669,7 +656,7 @@ cc.Repeat = cc.ActionInterval.extend(/** @lends cc.Repeat# */{
      * @return {Boolean}
      */
     isDone:function () {
-        return this._total === this._times;
+        return this._total == this._times;
     },
 
     /**
@@ -688,7 +675,7 @@ cc.Repeat = cc.ActionInterval.extend(/** @lends cc.Repeat# */{
      * @param {cc.FiniteTimeAction} action
      */
     setInnerAction:function (action) {
-        if (this._innerAction !== action) {
+        if (this._innerAction != action) {
             this._innerAction = action;
         }
     },
@@ -826,7 +813,7 @@ cc.RepeatForever = cc.ActionInterval.extend(/** @lends cc.RepeatForever# */{
      * @param {cc.ActionInterval} action
      */
     setInnerAction:function (action) {
-        if (this._innerAction !== action) {
+        if (this._innerAction != action) {
             this._innerAction = action;
         }
     },
@@ -2654,6 +2641,7 @@ cc.FadeTo = cc.ActionInterval.extend(/** @lends cc.FadeTo# */{
         time = this._computeEaseTime(time);
         var fromOpacity = this._fromOpacity !== undefined ? this._fromOpacity : 255;
         this.target.opacity = fromOpacity + (this._toOpacity - fromOpacity) * time;
+
     },
 
     /**
@@ -2705,9 +2693,7 @@ cc.FadeIn = cc.FadeTo.extend(/** @lends cc.FadeIn# */{
      */
     ctor:function (duration) {
         cc.FadeTo.prototype.ctor.call(this);
-        if (duration == null)
-            duration = 0;
-        this.initWithDuration(duration, 255);
+        duration && this.initWithDuration(duration, 255);
     },
 
     /**
@@ -2781,9 +2767,7 @@ cc.FadeOut = cc.FadeTo.extend(/** @lends cc.FadeOut# */{
      */
     ctor:function (duration) {
         cc.FadeTo.prototype.ctor.call(this);
-        if (duration == null)
-            duration = 0;
-        this.initWithDuration(duration, 0);
+        duration && this.initWithDuration(duration, 0);
     },
 
     /**
@@ -2909,12 +2893,9 @@ cc.TintTo = cc.ActionInterval.extend(/** @lends cc.TintTo# */{
         dt = this._computeEaseTime(dt);
         var locFrom = this._from, locTo = this._to;
         if (locFrom) {
-            this.target.setColor(
-                cc.color(
-                    locFrom.r + (locTo.r - locFrom.r) * dt,
-                    locFrom.g + (locTo.g - locFrom.g) * dt,
-                    locFrom.b + (locTo.b - locFrom.b) * dt)
-            );
+            this.target.color = cc.color(locFrom.r + (locTo.r - locFrom.r) * dt,
+                                        locFrom.g + (locTo.g - locFrom.g) * dt,
+	                                    locFrom.b + (locTo.b - locFrom.b) * dt);
         }
     }
 });
@@ -3169,7 +3150,7 @@ cc.ReverseTime = cc.ActionInterval.extend(/** @lends cc.ReverseTime# */{
     initWithAction:function (action) {
         if(!action)
             throw "cc.ReverseTime.initWithAction(): action must be non null";
-        if(action === this._other)
+        if(action == this._other)
             throw "cc.ReverseTime.initWithAction(): the action was already passed in.";
 
         if (cc.ActionInterval.prototype.initWithDuration.call(this, action._duration)) {
@@ -3530,7 +3511,7 @@ cc.TargetedAction = cc.ActionInterval.extend(/** @lends cc.TargetedAction# */{
      * @param {cc.Node} forcedTarget
      */
     setForcedTarget:function (forcedTarget) {
-        if (this._forcedTarget !== forcedTarget)
+        if (this._forcedTarget != forcedTarget)
             this._forcedTarget = forcedTarget;
     }
 });

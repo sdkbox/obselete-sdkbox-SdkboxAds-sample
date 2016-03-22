@@ -1,1 +1,146 @@
-../../cpp/Resources/res/sdkbox_config.json
+{
+    "android": {
+        "SdkboxAds": {
+            "units": [
+                "AdColony", 
+                "Bee7", 
+                "Chartboost", 
+                "AdMob", 
+                "Vungle", 
+                "InMobi", 
+                "Fyber"
+            ], 
+            "placements": [
+                {
+                    "units": [
+                        {
+                            "name": "video", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "name": "Default", 
+                            "unit": "Chartboost"
+                        }, 
+                        {
+                            "name": "video", 
+                            "unit": "Vungle"
+                        }
+                    ], 
+                    "id": "placement-1", 
+                    "strategy": "round-robin"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "reward", 
+                            "unit": "Vungle"
+                        }, 
+                        {
+                            "name": "v4vc", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "name": "Level Complete", 
+                            "unit": "Chartboost"
+                        }
+                    ], 
+                    "id": "placement-2", 
+                    "strategy": "round-robin"
+                }
+            ]
+        }, 
+        "Fyber": {
+            "debug": true, 
+            "token": "48e8452e9f008fe6d2ef61d742ce6c06", 
+            "appid": "35669"
+        }, 
+        "AdColony": {
+            "debug": true, 
+            "id": "app185a7e71e1714831a49ec7", 
+            "ads": {
+                "v4vc": {
+                    "v4vc": true, 
+                    "pre_popup": true, 
+                    "zone": "vz1fd5a8b2bf6841a0a4b826", 
+                    "post_popup": true
+                }, 
+                "video": {
+                    "v4vc": false, 
+                    "zone": "vz06e8c32a037749699e7050"
+                }
+            }
+        }
+    }, 
+    "ios": {
+        "SdkboxAds": {
+            "units": [
+                "AdColony", 
+                "Bee7", 
+                "Chartboost", 
+                "AdMob", 
+                "Vungle", 
+                "InMobi", 
+                "Fyber"
+            ], 
+            "placements": [
+                {
+                    "units": [
+                        {
+                            "name": "video", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "name": "Default", 
+                            "unit": "Chartboost"
+                        }, 
+                        {
+                            "name": "video", 
+                            "unit": "Vungle"
+                        }
+                    ], 
+                    "id": "placement-1", 
+                    "strategy": "round-robin"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "reward", 
+                            "unit": "Vungle"
+                        }, 
+                        {
+                            "name": "v4vc", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "name": "Level Complete", 
+                            "unit": "Chartboost"
+                        }
+                    ], 
+                    "id": "placement-2", 
+                    "strategy": "round-robin"
+                }
+            ]
+        }, 
+        "Fyber": {
+            "debug": true, 
+            "token": "34a9643edf4d3052d2bc1928b2e34d8d", 
+            "appid": "35561"
+        }, 
+        "AdColony": {
+            "debug": true, 
+            "id": "appbdee68ae27024084bb334a", 
+            "ads": {
+                "v4vc": {
+                    "v4vc": true, 
+                    "pre_popup": true, 
+                    "zone": "vzf8e4e97704c4445c87504e", 
+                    "post_popup": true
+                }, 
+                "video": {
+                    "v4vc": false, 
+                    "zone": "vzf8fb4670a60e4a139d01b5"
+                }
+            }
+        }
+    }
+}

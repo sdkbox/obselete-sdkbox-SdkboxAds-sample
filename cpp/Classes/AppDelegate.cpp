@@ -1,6 +1,12 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 #ifdef SDKBOX_ENABLED
+#include "PluginAdColony/PluginAdColony.h"
+#endif
+#ifdef SDKBOX_ENABLED
+#include "PluginSdkboxAds/PluginSdkboxAds.h"
+#endif
+#ifdef SDKBOX_ENABLED
 #include "PluginChartboost/PluginChartboost.h"
 #endif
 #ifdef SDKBOX_ENABLED
@@ -29,6 +35,12 @@ void AppDelegate::initGLContextAttrs()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
+#ifdef SDKBOX_ENABLED
+    sdkbox::PluginAdColony::init();
+#endif
+#ifdef SDKBOX_ENABLED
+    sdkbox::PluginSdkboxAds::init();
+#endif
 #ifdef SDKBOX_ENABLED
     sdkbox::PluginChartboost::init();
 #endif
